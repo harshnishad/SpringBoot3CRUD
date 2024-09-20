@@ -1,7 +1,7 @@
 <body>
 
 
-<h1>📚 Spring Boot 3</h1>
+<h1>📚 Spring Boot 3 </h1>
 
 <p>The Spring Framework offers a comprehensive programming and configuration model for modern Java-based enterprise applications, adaptable to any deployment platform.</p>
 
