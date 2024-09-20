@@ -11,8 +11,8 @@ public class EmpController {
     //List<Employee> employess = new ArrayList<>();
     //Dependency enjection
 
-
-    EmployeeService employeeService = new EmployeeServiceImpl() ;
+    @Autowired
+    EmployeeService employeeService;
     // bar bar new keyword se obj nhi baninge kyuki bar bar call krne pr memory banegi
 
     @GetMapping("employee")
