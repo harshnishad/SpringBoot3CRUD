@@ -31,4 +31,14 @@ public class EmpController {
      if(employeeService.deleteEmployee(id)) return "Employee deleted👍";
      return "Employee not found 😒";
     }
+
+    @GetMapping("employee/{id}")
+    public Employee getEmployee(@PathVariable Long id){
+        return employeeService.getEmployeeById(id);
+    }
+
+    @PutMapping("employee/{id}")
+    public String updateEmployee(@PathVariable Long id, @RequestBody Employee emp){
+        return employeeService.updateEmployee(id, emp);
+    }
 }

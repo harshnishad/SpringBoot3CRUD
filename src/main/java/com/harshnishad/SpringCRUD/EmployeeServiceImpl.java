@@ -27,7 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = new ArrayList<>();
         for (EmployeeEntity employeeEntity : employeeList) {
             Employee employee = new Employee();
-
+            employee.setId(employeeEntity.getId());
+            employee.setPhone(employeeEntity.getPhone());
             employee.setName(employeeEntity.getName());
             employee.setEmail(employeeEntity.getEmail());
             employees.add(employee);
@@ -42,5 +43,23 @@ public class EmployeeServiceImpl implements EmployeeService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String updateEmployee(Long id, Employee employee) {
+        EmployeeEntity newEmployee = employeeRepository.findById(id).get();
+        newEmployee.setEmail(employee.getEmail());
+        newEmployee.setPhone(employee.getPhone());
+        newEmployee.setName(employee.getName());
+        employeeRepository.save(newEmployee);
+        return "update sucessfully";
+    }
+
+    @Override
+    public Employee getEmployeeById(Long id) {
+        EmployeeEntity newEmployee = employeeRepository.findById(id).get();
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(newEmployee, employee);
+        return employee;
     }
 }
